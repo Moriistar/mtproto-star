@@ -1,0 +1,41 @@
+
+### `install.sh` (اسکریپت نصب)
+
+```bash
+#!/bin/bash
+
+echo "📦 نصب MTProto-Star"
+echo "=================="
+
+# بررسی وجود پایتون
+if ! command -v python3 &> /dev/null
+then
+    echo "🛠 نصب پایتون 3..."
+    sudo apt update
+    sudo apt install -y python3 python3-pip
+fi
+
+# نصب نیازمندی‌ها
+echo "📦 نصب کتابخانه‌های مورد نیاز..."
+pip3 install -r requirements.txt
+
+# ایجاد فایل پیکربندی
+if [ ! -f config.ini ]; then
+    echo "⚙️ ایجاد فایل پیکربندی اولیه..."
+    cat > config.ini <<EOL
+[bot]
+token = YOUR_BOT_TOKEN
+admin_id = YOUR_ADMIN_ID
+
+[server]
+ip = YOUR_SERVER_IP
+password = YOUR_SERVER_PASSWORD
+start_port = 1000
+end_port = 10000
+EOL
+    echo "لطفاً فایل config.ini را ویرایش کنید و سپس ربات را اجرا نمایید."
+fi
+
+echo "✅ نصب با موفقیت انجام شد!"
+echo "برای اجرا از دستور زیر استفاده کنید:"
+echo "python3 mtproxy_bot.py"
