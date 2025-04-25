@@ -1,0 +1,9 @@
+git clone https://github.com/MoriiStar/mtproto-star.git
+cd mtproto-star
+
+# کپی کردن فایل‌های پروژه به این پوشه
+# سپس:
+
+git add .
+git commit -m "اولین نسخه از MTProto-Star"
+git push origin main
