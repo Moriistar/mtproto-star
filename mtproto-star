@@ -1,0 +1,7 @@
+mtproto-star/
+├── README.md
+├── install.sh
+├── mtproxy_bot.py
+├── config.ini
+├── requirements.txt
+└── LICENSE
